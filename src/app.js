@@ -204,6 +204,7 @@ const initializeEventListeners = () => {
     "change",
     onMediaQueryWidthChange
   );
+  document.body.addEventListener("keydown", handleKeyboardShortcuts);
 };
 
 const initializeToastr = () => {
@@ -417,6 +418,13 @@ const openFile = async (entry, sidebarNode) => {
     editor.setMarkdown(contents);
   } catch (error) {
     toastr.error(`Something went wrong opening ${entry.name}`);
+  }
+};
+
+const handleKeyboardShortcuts = (evt) => {
+  if (evt.key === "s" && evt.ctrlKey) {
+    evt.preventDefault();
+    saveActiveWorkingHandle();
   }
 };
 
