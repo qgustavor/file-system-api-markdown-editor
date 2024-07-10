@@ -425,6 +425,7 @@ const handleKeyboardShortcuts = (evt) => {
   if (evt.key === "s" && evt.ctrlKey) {
     evt.preventDefault();
     saveActiveWorkingHandle();
+    editor.exec("Strike");
   }
 };
 
